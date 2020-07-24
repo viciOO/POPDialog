@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @keyframes upDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-300px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(30px);
+      }
+    }
+
+
+    #divNew {
+      width: 600px;
+      height: 350px;
+      background-color: #fff;
+      position: fixed;
+      left: 50%;
+      top: 40%;
+      margin-left: -300px;
+      margin-top: -175px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid #ddd;
+      border-top: 2px solid #427fed;
+      border-radius: 2px 2px 10px #000;
+      padding-left: 15px;
+      padding-right: 15px;
+      border-radius: 5px;
+      animation-name: upDown;
+      animation-duration: .6s;
+    }
+
+    #closeDiv {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #427fed;
+      margin-right: 10px;
+      cursor: pointer;
+      align-self: flex-end;
+      height: 20px;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      width: 90px;
+      height: 35px;
+      border-radius: 5px;
+      border: none;
+      background-color: #427fed;
+      color: antiquewhite;
+      box-shadow: 0px 0px 10px 5px #ddd;
+      font-weight: bold;
+      font-style: italic;
+      cursor: pointer;
+    }
+
+    .btnDouble {
+      border-top: 1px solid #ddd;
+      height: 65px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .btnDouble .submit {
+      height: 30px;
+      width: 60px;
+      background-color: #427fed;
+      color: #fff;
+      border-radius: 5px;
+      font-size: 1rem;
+      margin-right: 50px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btnDouble .cancel {
+      height: 30px;
+      width: 60px;
+      background-color: #ddd;
+      color: #333;
+      border-radius: 8px;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .firstDiv {
+      margin-left: 60px;
+      margin-bottom: 15px;
+      display: flex;
+    }
+
+
+
+    .firstDiv>.firstInput {
+      outline: none;
+      border: 1px solid #999;
+      border-radius: 5px;
+      width: 60%;
+      height: 30px;
+    }
+
+
+
+    .firstDiv>.firstLabel {
+      color: #777;
+      width: 20%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id='divNew'>
+    <div id="closeDiv">×</div>
+    <div class="row">
+      <div class="firstDiv">
+        <label for="moduleName" class="firstLabel">*模块名称</label>
+        <input type="text" id="moduleName" class="firstInput" placeholder="包间编码" disabled>
+      </div>
+      <div class="firstDiv">
+        <label for="encodingPrefix" class="firstLabel">*编码前缀</label>
+        <input type="text" id="encodingPrefix" class="firstInput">
+      </div>
+      <div class="firstDiv">
+        <label for="waterLevel" class="firstLabel">*流水位</label>
+        <input type="text" id="encodingPrefix" class="firstInput">
+      </div>
+      <div class="firstDiv">
+
+        <label for="dateFormat" class="firstLabel">*日期位</label>
+
+        <div class="dateFormatGroupSum">
+          <div class="dateFormatGroupSum1">
+            <input type="radio" name="dateFormatGroup" id="dateFormatGroup1">
+            <label for="dateFormatGroup1">yyyyMMdd</label>
+            <input type="radio" name="dateFormatGroup" id="dateFormatGroup2">
+            <label for="dateFormatGroup2">yyyyMMdd</label>
+            <input type="radio" name="dateFormatGroup" id="dateFormatGroup3">
+            <label for="dateFormatGroup3">yyyyMMdd</label>
+          </div>
+          <div class="dateFormatGroupSum2">
+            <input type="radio" name="dateFormatGroup" id="dateFormatGroup4">
+            <label for="dateFormatGroup4">yyyyMMdd</label>
+            <input type="radio" name="dateFormatGroup" id="dateFormatGroup5">
+            <label for="dateFormatGroup6">yyyyMMdd</label>
+            <input type="radio" name="dateFormatGroup" id="dateFormatGroup5">
+            <label for="dateFormatGroup6">无</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="btnDouble">
+      <button class="submit">保存</button>
+      <button class="cancel">取消</button>
+    </div>
+  </div>
+  <button class="btn" id="addDiv">POPDialog</button>
+  <script src="jquery-1.12.4.min.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#addDiv").on('click', function () {
+        $("#divNew").css({
+          display: "flex",
+        })
+
+      })
+      $("#closeDiv").on('click', function () {
+        $("#divNew").css({
+          display: "none",
+        })
+      })
+      $(".cancel").on('click', function () {
+        $("#divNew").css({
+          display: "none",
+        })
+      })
+    })
+  </script>
+</body>
+
+</html>
